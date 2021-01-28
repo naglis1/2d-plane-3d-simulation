@@ -3,52 +3,67 @@ import java.awt.Graphics;
 import java.lang.Math;
 
 public class Plane extends AbstractPlane {
+	// From what angle we are seeing upper side of rectangle; at what distance we are standing from the center of the rectangle
+	private double angle, yPos = 50*Math.sqrt(3);
+	// For changing x coordinate of the points, after walking towards
+	private double oldHeight;
+	
+	//half of rectangle rotating axis projection height
+	private double height = 50;
+	
 	public Plane() {
 		super();
-		xA = -50;
-		yA = 50;
-		xB = 50;
-		yB = 50;
-		xC = 50;
-		yC = -50;
-		xD = -50;
-		yD = -50;
-		
+		xA = -height;
+		yA = height;
+		xB = height;
+		yB = height;
+		xC = height;
+		yC = -height;
+		xD = -height;
+		yD = -height;
 	}
 
 	@Override
 	public void tick() {
-		// ROTATING AROUND Z AXIS
-		
-		// For smooth, realistic, equal rotation speed distribution (not exactly 90 degree cuz cosine would be 0, so no movement supported at primary positions)
-		xA -= velRotZ*Math.cos(Math.toRadians(89.9*xA/50));
-		xB += velRotZ*Math.cos(Math.toRadians(89.9*xB/50));
 		
 		
+		//zooming:
+		yPos -= velY;
+		oldHeight = height;
+		height = 2500*Math.sqrt(3)/yPos;
+		angle = Math.atan(50/yPos);
+		
+		//trying to fix the mess AND IT WORKS!!!!!
+		xA = xA*(height/oldHeight);
+		xB = xB*(height/oldHeight);
+		
+		// For smooth, realistic, equal rotation Z speed distribution (not exactly 90 degree cuz cosine would be 0, so no movement supported at primary positions)
+		xA = xA - velRotZ*height/50*Math.cos(Math.toRadians(89.9*xA/height));
+		xB = xB + velRotZ*height/50*Math.cos(Math.toRadians(89.9*xB/height));
 		// Switch points, when the bounds are reached
-		if (xA > 50) {
-			xA = -50;
+		if (xA > height) {
+			xA = -height;
 		}
-		if (xB < -50) {
-			xB = 50;
+		if (xB < -height) {
+			xB = height;
 		}
-		if (xA < -50) {
-			xA = 50;
+		if (xA < -height) {
+			xA = height;
 		}
-		if (xB > 50) {
-			xB = -50;
+		if (xB > height) {
+			xB = -height;
 		}
 		
 		// Follow coordinates
 		xD = xA;
 		xC = xB;
 		
-		// Make an arc for Y axis of ellipse form
-		yA = 50+Math.sin(Math.toRadians(30))*50*Math.sqrt(1-(xA*xA)/(50*50));
-		yC = yA-100;
+		// Make an arc, formed from ellipse
+		yA = height+Math.sin(angle)*height*Math.sqrt(1-((xA*xA)/(height*height)));
+		yC = yA-2*height;
 		
-		yB = 50-Math.sin(Math.toRadians(30))*50*Math.sqrt(1-((xB*xB)/(50*50)));
-		yD = yB-100;
+		yB = height-Math.sin(angle)*height*Math.sqrt(1-((xB*xB)/(height*height)));
+		yD = yB-2*height;
 		
 		
 		
