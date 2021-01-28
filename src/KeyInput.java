@@ -27,10 +27,10 @@ public class KeyInput extends KeyAdapter {
 			plane.setVelRotX(-1);
 		}
 		if (key == KeyEvent.VK_RIGHT) {
-			plane.setVelRotZ(-1);
+			plane.setVelRotZ(-3);
 		}
 		if (key == KeyEvent.VK_LEFT) {
-			plane.setVelRotZ(1);
+			plane.setVelRotZ(3);
 		}
 		if (key == KeyEvent.VK_PAGE_UP) {
 			plane.setVelRotY(-1);
