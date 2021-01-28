@@ -20,7 +20,7 @@ public abstract class AbstractPlane {
 	 * 
 	 * 
 	 */
-	protected int xA, xB, xC, xD, yA, yB, yC, yD;
+	protected double xA, xB, xC, xD, yA, yB, yC, yD;
 	// Coordinates - actually
 	protected int xAa, xBa, xCa, xDa, yAa, yBa, yCa, yDa;
 
@@ -44,14 +44,14 @@ public abstract class AbstractPlane {
 	
 	// Setting actual coordinate system relative to the center of the window
 	protected void setActual() {
-		xAa = xA + 320;
-		xBa = xB + 320;
-		xCa = xC + 320;
-		xDa = xD + 320;
-		yAa = 210-yA;
-		yBa = 210-yB;
-		yCa = 210-yC;
-		yDa = 210-yD;
+		xAa = (int)xA + 320;
+		xBa = (int)xB + 320;
+		xCa = (int)xC + 320;
+		xDa = (int)xD + 320;
+		yAa = 210-(int)yA;
+		yBa = 210-(int)yB;
+		yCa = 210-(int)yC;
+		yDa = 210-(int)yD;
 	}
 	
 	// Getters and setters
@@ -61,43 +61,43 @@ public abstract class AbstractPlane {
 	public void setxA(int xA) {
 		this.xA = xA;
 	}
-	public int getxB() {
+	public double getxB() {
 		return xB;
 	}
 	public void setxB(int xB) {
 		this.xB = xB;
 	}
-	public int getxC() {
+	public double getxC() {
 		return xC;
 	}
 	public void setxC(int xC) {
 		this.xC = xC;
 	}
-	public int getxD() {
+	public double getxD() {
 		return xD;
 	}
 	public void setxD(int xD) {
 		this.xD = xD;
 	}
-	public int getyA() {
+	public double getyA() {
 		return yA;
 	}
 	public void setyA(int yA) {
 		this.yA = yA;
 	}
-	public int getyB() {
+	public double getyB() {
 		return yB;
 	}
 	public void setyB(int yB) {
 		this.yB = yB;
 	}
-	public int getyC() {
+	public double getyC() {
 		return yC;
 	}
 	public void setyC(int yC) {
 		this.yC = yC;
 	}
-	public int getyD() {
+	public double getyD() {
 		return yD;
 	}
 	public void setyD(int yD) {
