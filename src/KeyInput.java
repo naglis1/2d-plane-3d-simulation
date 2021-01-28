@@ -58,10 +58,10 @@ public class KeyInput extends KeyAdapter {
 		if (key == KeyEvent.VK_NUMPAD6) {
 			plane.setVelX(1);
 		}
-		if (key == KeyEvent.VK_PLUS) {
+		if (key == 107) {
 			plane.setVelZ(1);
 		}
-		if (key == KeyEvent.VK_MINUS) {
+		if (key == 109) {
 			plane.setVelZ(-1);
 		}
 		
@@ -103,10 +103,10 @@ public class KeyInput extends KeyAdapter {
 		if (key == KeyEvent.VK_NUMPAD6) {
 			plane.setVelX(0);
 		}
-		if (key == KeyEvent.VK_PLUS) {
+		if (key == 107) {
 			plane.setVelZ(0);
 		}
-		if (key == KeyEvent.VK_MINUS) {
+		if (key == 109) {
 			plane.setVelZ(0);
 		}
 		
