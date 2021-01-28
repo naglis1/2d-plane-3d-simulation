@@ -6,5 +6,7 @@ Plane together with rotation and viewer movement projected on 2D screen, making 
 | ------------- | ------------- |
 | ← | Rotating plane left |
 | →  | Rotating plane right  |
+| +(numpad)| Viewer forward movement|
+| -(numpad)| Viewer backward movement|
 
 
