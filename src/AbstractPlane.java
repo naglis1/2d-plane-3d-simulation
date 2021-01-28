@@ -4,19 +4,19 @@ public abstract class AbstractPlane {
 
 	/* 	Primary position of points and coordinate axes (stationary - at the center of the window)
 	 * 
-	 * 					   z^	  
-	 * 						|	 ^y
-	 * 						|	/
+	 * 				       z^	  
+	 * 					|    ^y
+	 * 					|   /
 	 * 				A*------+------*B
-	 * 				 |		| /	   |
-	 * 				 |		|/	   |	 
-	 * 		---------+------+------+--------->
-	 * 				 |		|	   | 		x
-	 * 				 |		|	   |	 
+	 * 				 |	| /    |
+	 * 				 |	|/     |	 
+	 * 	           	---------+------+------+--------->
+	 * 				 |	|      | 	x
+	 * 				 |	|      |	 
 	 * 				D*------+------*C
-	 * 						|
-	 * 						|
-	 * 						|
+	 * 					|
+	 * 					|
+	 * 					|
 	 * 
 	 * 
 	 */
@@ -26,12 +26,12 @@ public abstract class AbstractPlane {
 
 	/* Rotation of the plane
 	 * e.g. +RotX:
-	 *  		  __
-	 * 			 /  \
-	 * 			/    v
+	 *  	      __
+	 * 	     /  \
+	 * 	    /    v
 	 * --------|------------> 
-	 * 			^	 	   x
-	 * 			 \__/
+	 * 	    ^	        x
+	 * 	     \__/
 	 * 
 	 */
 	protected int velRotX, velRotY, velRotZ;
